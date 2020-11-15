@@ -1,14 +1,13 @@
 #ifndef CARDLIST_H
 #define CARDLIST_H
 #include "IReadCardList.h"
-#include "Card.h"
 #include <vector>
 
-class CardList: public IReadCardList{
+class CardList: virtual public IReadCardList{
     private:
-        int numCards=0;
+        int numCards;
         std::vector<Card*> v;
-        int current_index=0;
+        int current_index;
     public:
         CardList();
         Card* getFirst();

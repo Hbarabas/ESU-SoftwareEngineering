@@ -6,7 +6,7 @@ Game::Game(IStack* source, IStack* dest){
 }
 
 void Game::move(){
-    if(!deck->isEmpty()){
+    if(!(deck->isEmpty())){
         Card* temp=deck->pop();
         stack->push(temp);
     }

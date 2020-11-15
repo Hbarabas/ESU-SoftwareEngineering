@@ -2,9 +2,7 @@
 #define DECK_H
 #include "SStack.h"
 
-class Deck: public SStack{
-    private:
-        SStack* s;
+class Deck: virtual public SStack{
     public: 
         Deck(int);
 };

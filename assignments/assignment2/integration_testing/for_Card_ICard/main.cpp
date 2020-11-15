@@ -43,9 +43,5 @@ int main(int argc, char *argv[])
 	//no modifactions allowed from an ICard instance
 		//only accessing is allowed
 	printIState( (ICard*) temp);
-	int32_t w=100, h=100;
-	BMP* tempBMP = new BMP(w, h);
-	const char* filename="tempImage.bmp";
-	tempBMP->write(filename);
 	return 0;
 }

@@ -1,10 +1,12 @@
 #include "CardList.h"
 bool CardList::isEmpty(){
-    bool temp=v.size()==0;
-    return temp;
+    return (v.empty());
 }
 
-CardList::CardList(){}
+CardList::CardList() {
+    numCards = 0;
+    current_index = 0;
+}
 
 void CardList::append(Card* c){
     v.push_back(c);
@@ -12,26 +14,33 @@ void CardList::append(Card* c){
 }
 
 Card* CardList::removeLast(){
+    current_index = 0;
     Card* temp=v.back();
+    numCards--;
     v.pop_back();
     return temp;
 }
 
 Card* CardList::getFirst(){
-    if(!isEmpty()){
-        current_index=1;
-        return v.front();
+    if(isEmpty())
+    {
+        current_index = 0;
+        throw "End of cardlist";
     }
     else{
-        throw "EndOfCardList";
+        current_index = 1;
+        return v.front();
     }
 }
 
 Card* CardList::getNext(){
-    if(current_index==v.size()){
+    if(current_index<numCards){
+        current_index = 0;
         throw "EndOfCardList";
     }
-    Card* temp=v.at(current_index);
-    current_index++;
-    return temp;
+    else {
+        Card* temp = v.at(current_index);
+        current_index++;
+        return temp;
+    }
 }

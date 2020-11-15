@@ -2,16 +2,11 @@
 #define SSTACK_H
 #include "IStack.h"
 #include "CardList.h"
-#include <vector>
 
-class SStack : public IStack, public CardList{
-    private:
-        CardList* list;
+class SStack : virtual public IStack, virtual public CardList{
     public:
-        SStack();
         void push(Card*);
         Card* pop();
         bool isEmpty();
 };
-
 #endif
